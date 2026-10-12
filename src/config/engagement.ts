@@ -112,7 +112,7 @@ export const engagementConfig: EngagementConfig = {
     },
     monogram: "R & D",
     // Neutral romantic floral emblem placeholder by default
-    photo: "/images/couple-floral-crest.svg",
+    photo: "image1.jpeg",
     photoPlaceholderAlt: "Richard Rex and Diana Joe Engagement Emblem",
   },
   event: {
