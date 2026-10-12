@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="ogBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDFAF6" />
+      <stop offset="50%" stop-color="#FDF0F3" />
+      <stop offset="100%" stop-color="#F4E5B8" />
+    </linearGradient>
+    <linearGradient id="ogGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C5A059" />
+      <stop offset="40%" stop-color="#F3E5AB" />
+      <stop offset="70%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#8C6514" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#ogBg)" />
+  <rect x="30" y="30" width="1140" height="570" fill="none" stroke="url(#ogGold)" stroke-width="3" rx="20" />
+  <rect x="44" y="44" width="1112" height="542" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="8,6" rx="14" opacity="0.6" />
+
+  <!-- Monogram Crest in Center -->
+  <circle cx="600" cy="180" r="85" fill="#FDFAF6" stroke="url(#ogGold)" stroke-width="3" />
+  <text x="600" y="195" font-family="'Playfair Display', Georgia, serif" font-size="56" font-weight="600" fill="url(#ogGold)" text-anchor="middle">
+    R &amp; D
+  </text>
+  
+  <text x="600" y="310" font-family="'Cinzel', Georgia, serif" font-size="22" letter-spacing="8" fill="#8C6514" font-weight="600" text-anchor="middle">
+    CHRISTIAN ENGAGEMENT CEREMONY
+  </text>
+
+  <text x="600" y="395" font-family="'Great Vibes', cursive" font-size="80" fill="#2A2521" text-anchor="middle">
+    Richard Rex &amp; Diana Joe
+  </text>
+
+  <text x="600" y="465" font-family="'Cinzel', Georgia, serif" font-size="24" letter-spacing="4" fill="#8C6514" text-anchor="middle">
+    SUNDAY, NOVEMBER 29, 2026
+  </text>
+
+  <text x="600" y="515" font-family="'Montserrat', sans-serif" font-size="18" letter-spacing="3" fill="#6A6059" text-anchor="middle">
+    MALLIGAI THIRUMANA MANDAPAM • THIRUVANNAMALAI, TAMIL NADU
+  </text>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 40" width="100%" height="40">
+  <defs>
+    <linearGradient id="divGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0" />
+      <stop offset="25%" stop-color="#D4AF37" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#F5E5B8" />
+      <stop offset="75%" stop-color="#D4AF37" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <!-- Thin luxury lines -->
+  <line x1="20" y1="20" x2="175" y2="20" stroke="url(#divGold)" stroke-width="1" />
+  <line x1="225" y1="20" x2="380" y2="20" stroke="url(#divGold)" stroke-width="1" />
+  <!-- Center ornament with small leaves and diamond -->
+  <g transform="translate(200, 20)">
+    <polygon points="0,-7 7,0 0,7 -7,0" fill="#D4AF37" />
+    <circle cx="0" cy="0" r="2.5" fill="#FFF8E7" />
+    <!-- Small flanking leaf buds -->
+    <path d="M-10,0 C-14,-5 -18,-2 -15,0 C-18,2 -14,5 -10,0 Z" fill="#9FB992" opacity="0.8" />
+    <path d="M10,0 C14,-5 18,-2 15,0 C18,2 14,5 10,0 Z" fill="#9FB992" opacity="0.8" />
+  </g>
+</svg>

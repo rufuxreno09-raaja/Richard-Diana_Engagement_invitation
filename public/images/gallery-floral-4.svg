@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDFAF6" />
+      <stop offset="45%" stop-color="#FFF0F3" />
+      <stop offset="100%" stop-color="#FAF4E1" />
+    </linearGradient>
+    <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C5A059" />
+      <stop offset="50%" stop-color="#F3E5AB" />
+      <stop offset="100%" stop-color="#967418" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg4)" />
+  <rect x="25" y="25" width="550" height="700" fill="none" stroke="url(#g4)" stroke-width="2" rx="16" />
+  
+  <!-- Romantic floral cartouche with doves -->
+  <g transform="translate(300, 290)">
+    <!-- Peaceful Christian Dove Motif -->
+    <path d="M-20,-20 C-40,-50 -80,-50 -60,-20 C-40,-10 -30,0 -10,0 C10,0 20,-10 40,-20 C60,-50 20,-50 0,-20 Z" fill="#FFFFFF" stroke="url(#g4)" stroke-width="2" />
+    <circle cx="-15" cy="-25" r="2.5" fill="#D4AF37" />
+    <path d="M0,0 C0,30 -20,60 -50,60 C-30,40 -20,20 -10,0 Z" fill="#FFF8E7" opacity="0.9" />
+    <path d="M0,0 C0,30 20,60 50,60 C30,40 20,20 10,0 Z" fill="#FFF8E7" opacity="0.9" />
+    
+    <!-- Olive Branch in beak -->
+    <path d="M0,-15 C15,-20 25,-15 35,-25" fill="none" stroke="#759367" stroke-width="2" />
+    <ellipse cx="25" cy="-18" rx="5" ry="2.5" fill="#9FB992" transform="rotate(-20 25 -18)" />
+    <ellipse cx="35" cy="-25" rx="5" ry="2.5" fill="#9FB992" transform="rotate(-30 35 -25)" />
+  </g>
+
+  <!-- Golden Monogram Seal -->
+  <circle cx="300" cy="385" r="34" fill="#FDFAF6" stroke="url(#g4)" stroke-width="2" />
+  <text x="300" y="393" font-family="'Playfair Display', serif" font-size="20" font-weight="600" fill="#8C6514" text-anchor="middle">
+    R &amp; D
+  </text>
+
+  <text x="300" y="520" font-family="'Cinzel', serif" font-size="28" letter-spacing="4" fill="#8C6514" text-anchor="middle" font-weight="600">
+    HARMONY &amp; PEACE
+  </text>
+  <text x="300" y="560" font-family="'Montserrat', sans-serif" font-size="14" letter-spacing="3" fill="#6A6059" text-anchor="middle">
+    THIRUVANNAMALAI, TN
+  </text>
+  <text x="300" y="590" font-family="'Cormorant Garamond', serif" font-style="italic" font-size="18" fill="#8C6514" text-anchor="middle">
+    "Held together by eternal blessings"
+  </text>
+</svg>

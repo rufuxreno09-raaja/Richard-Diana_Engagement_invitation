@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDFAF6" />
+      <stop offset="50%" stop-color="#FDF0F3" />
+      <stop offset="100%" stop-color="#FCE1E7" />
+    </linearGradient>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C5A059" />
+      <stop offset="50%" stop-color="#F3E5AB" />
+      <stop offset="100%" stop-color="#967418" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg1)" />
+  <rect x="25" y="25" width="550" height="700" fill="none" stroke="url(#g1)" stroke-width="2" rx="16" />
+  <rect x="35" y="35" width="530" height="680" fill="none" stroke="#D4AF37" stroke-width="1" stroke-dasharray="6,4" rx="12" opacity="0.6" />
+  
+  <!-- Interlocking rings symbol -->
+  <g transform="translate(300, 320)">
+    <circle cx="-35" cy="0" r="60" fill="none" stroke="url(#g1)" stroke-width="9" />
+    <circle cx="35" cy="0" r="60" fill="none" stroke="url(#g1)" stroke-width="9" />
+    <!-- Solitaire diamond sparkle -->
+    <polygon points="-35,-65 -25,-60 -35,-55 -45,-60" fill="#FFF8E7" />
+    <circle cx="-35" cy="-60" r="4" fill="#FFFFFF" />
+  </g>
+
+  <!-- Watercolor rose wreath around rings -->
+  <g transform="translate(300, 320) scale(1.4)" opacity="0.85">
+    <circle cx="-70" cy="50" r="16" fill="#FCE1E7" />
+    <circle cx="70" cy="50" r="16" fill="#FCE1E7" />
+    <circle cx="0" cy="90" r="20" fill="#EE9EB3" />
+    <circle cx="0" cy="90" r="10" fill="#DE7A95" />
+    <ellipse cx="-30" cy="95" rx="15" ry="8" fill="#9FB992" transform="rotate(-20 -30 95)" />
+    <ellipse cx="30" cy="95" rx="15" ry="8" fill="#9FB992" transform="rotate(20 30 95)" />
+  </g>
+
+  <text x="300" y="520" font-family="'Cinzel', serif" font-size="28" letter-spacing="4" fill="#8C6514" text-anchor="middle" font-weight="600">
+    PROMISE OF LOVE
+  </text>
+  <text x="300" y="560" font-family="'Montserrat', sans-serif" font-size="14" letter-spacing="3" fill="#6A6059" text-anchor="middle">
+    RICHARD &amp; DIANA
+  </text>
+  <text x="300" y="590" font-family="'Cormorant Garamond', serif" font-style="italic" font-size="18" fill="#8C6514" text-anchor="middle">
+    "Two lives entwined by grace and faith"
+  </text>
+</svg>

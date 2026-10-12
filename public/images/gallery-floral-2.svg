@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDFAF6" />
+      <stop offset="60%" stop-color="#F6F9F5" />
+      <stop offset="100%" stop-color="#DDE8D6" />
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C5A059" />
+      <stop offset="50%" stop-color="#F3E5AB" />
+      <stop offset="100%" stop-color="#967418" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg2)" />
+  <rect x="25" y="25" width="550" height="700" fill="none" stroke="url(#g2)" stroke-width="2" rx="16" />
+  
+  <!-- Arch shaped ornate frame -->
+  <path d="M 120 620 L 120 300 C 120 180, 480 180, 480 300 L 480 620 Z" fill="none" stroke="url(#g2)" stroke-width="1.5" />
+  
+  <!-- Christian cross with floral accents inside arch -->
+  <g transform="translate(300, 310)" fill="url(#g2)">
+    <rect x="-4" y="-70" width="8" height="140" rx="3" />
+    <rect x="-45" y="-35" width="90" height="8" rx="3" />
+    <circle cx="0" cy="-31" r="7" fill="#F3E5AB" />
+  </g>
+
+  <!-- Flowing olive & sage garland -->
+  <g transform="translate(300, 310)">
+    <path d="M-80,40 C-40,80 40,80 80,40" fill="none" stroke="#759367" stroke-width="3" />
+    <circle cx="-50" cy="65" r="9" fill="#FCE1E7" />
+    <circle cx="0" cy="78" r="14" fill="#EE9EB3" />
+    <circle cx="50" cy="65" r="9" fill="#FCE1E7" />
+  </g>
+
+  <text x="300" y="520" font-family="'Cinzel', serif" font-size="28" letter-spacing="4" fill="#8C6514" text-anchor="middle" font-weight="600">
+    SACRED BLESSINGS
+  </text>
+  <text x="300" y="560" font-family="'Montserrat', sans-serif" font-size="14" letter-spacing="3" fill="#6A6059" text-anchor="middle">
+    FAITH &amp; DEVOTION
+  </text>
+  <text x="300" y="590" font-family="'Cormorant Garamond', serif" font-style="italic" font-size="18" fill="#8C6514" text-anchor="middle">
+    "United in God's perfect love"
+  </text>
+</svg>

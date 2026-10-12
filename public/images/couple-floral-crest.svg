@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C5A059" />
+      <stop offset="35%" stop-color="#F3E5AB" />
+      <stop offset="65%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#967418" />
+    </linearGradient>
+    <linearGradient id="blushPetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF0F3" />
+      <stop offset="50%" stop-color="#FCE1E7" />
+      <stop offset="100%" stop-color="#E8A3B5" />
+    </linearGradient>
+    <linearGradient id="sageLeaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EDF3EA" />
+      <stop offset="60%" stop-color="#A8BAA1" />
+      <stop offset="100%" stop-color="#728C6A" />
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background oval subtle ivory wash -->
+  <ellipse cx="250" cy="250" rx="190" ry="225" fill="#FDFAF6" stroke="url(#goldGrad)" stroke-width="3" />
+  <ellipse cx="250" cy="250" rx="180" ry="215" fill="none" stroke="#D4AF37" stroke-width="1" stroke-dasharray="6,4" opacity="0.6" />
+
+  <!-- Surrounding Leaves (Sage Green) -->
+  <g fill="url(#sageLeaf)" opacity="0.85">
+    <!-- Top left leaves -->
+    <path d="M140 130 C120 110, 110 80, 130 65 C150 80, 155 110, 140 130 Z" />
+    <path d="M125 145 C100 135, 80 120, 95 100 C115 110, 130 130, 125 145 Z" />
+    <!-- Top right leaves -->
+    <path d="M360 130 C380 110, 390 80, 370 65 C350 80, 345 110, 360 130 Z" />
+    <path d="M375 145 C400 135, 420 120, 405 100 C385 110, 370 130, 375 145 Z" />
+    <!-- Bottom leaves -->
+    <path d="M160 380 C135 400, 120 425, 140 440 C160 430, 175 400, 160 380 Z" />
+    <path d="M340 380 C365 400, 380 425, 360 440 C340 430, 325 400, 340 380 Z" />
+  </g>
+
+  <!-- Blush Watercolor Roses Top Center -->
+  <g transform="translate(250, 48) scale(0.7)">
+    <circle cx="0" cy="0" r="28" fill="url(#blushPetal)" opacity="0.95" />
+    <path d="M-15 -5 C-15 -22, 15 -22, 15 -5 C15 15, -15 15, -15 -5 Z" fill="#FCE1E7" opacity="0.8" />
+    <path d="M-8 -3 C-8 -12, 8 -12, 8 -3 C8 8, -8 8, -8 -3 Z" fill="#E8A3B5" />
+    <circle cx="-25" cy="10" r="16" fill="url(#blushPetal)" opacity="0.85" />
+    <circle cx="25" cy="10" r="16" fill="url(#blushPetal)" opacity="0.85" />
+  </g>
+
+  <!-- Blush Watercolor Roses Bottom Center -->
+  <g transform="translate(250, 448) scale(0.7)">
+    <circle cx="0" cy="0" r="28" fill="url(#blushPetal)" opacity="0.95" />
+    <path d="M-15 -5 C-15 -22, 15 -22, 15 -5 C15 15, -15 15, -15 -5 Z" fill="#FCE1E7" opacity="0.8" />
+    <path d="M-8 -3 C-8 -12, 8 -12, 8 -3 C8 8, -8 8, -8 -3 Z" fill="#E8A3B5" />
+    <circle cx="-25" cy="-8" r="16" fill="url(#blushPetal)" opacity="0.85" />
+    <circle cx="25" cy="-8" r="16" fill="url(#blushPetal)" opacity="0.85" />
+  </g>
+
+  <!-- Christian Cross Accent at Top of Monogram -->
+  <g transform="translate(250, 135)" fill="url(#goldGrad)">
+    <rect x="-2" y="-14" width="4" height="28" rx="2" />
+    <rect x="-10" y="-8" width="20" height="4" rx="2" />
+    <circle cx="0" cy="-2" r="3" fill="#FFF2B2" />
+  </g>
+
+  <!-- Elegant Intertwined Monogram R & D -->
+  <text x="250" y="275" 
+        font-family="'Playfair Display', 'Cormorant Garamond', Georgia, serif" 
+        font-size="94" 
+        font-weight="600"
+        letter-spacing="2"
+        fill="url(#goldGrad)" 
+        text-anchor="middle"
+        filter="url(#softGlow)">
+    R &amp; D
+  </text>
+
+  <!-- Subtitle Ribbon within Frame -->
+  <text x="250" y="325" 
+        font-family="'Cinzel', 'Trajan Pro', Georgia, serif" 
+        font-size="15" 
+        letter-spacing="5" 
+        fill="#8C6514" 
+        font-weight="600"
+        text-anchor="middle">
+    ENGAGEMENT CELEBRATION
+  </text>
+
+  <!-- Date inside Crest -->
+  <text x="250" y="355" 
+        font-family="'Montserrat', sans-serif" 
+        font-size="12" 
+        letter-spacing="3" 
+        fill="#665E58" 
+        text-anchor="middle">
+    NOVEMBER 29, 2026
+  </text>
+</svg>
