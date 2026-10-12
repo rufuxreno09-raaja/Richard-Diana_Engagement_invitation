@@ -138,7 +138,7 @@ export const engagementConfig: EngagementConfig = {
     country: "India",
     fullAddress: "Malligai Thirumana Mandapam, Thiruvannamalai, Tamil Nadu, India",
     // Direct Google Maps address search query (no invented GPS coordinates)
-    googleMapsUrl: "https://maps.app.goo.gl/bbFC4zc2J3MWX7iB6?g_st=ac",
+    googleMapsUrl: "https://maps.app.goo.gl/RB2mPJwH2bNeuEye9?g_st=ac",
   },
   reception: {
     enabled: false, // Disabled until details are supplied
