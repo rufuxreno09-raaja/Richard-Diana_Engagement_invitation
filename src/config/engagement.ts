@@ -125,7 +125,7 @@ export const engagementConfig: EngagementConfig = {
     day: 29,
     // Time is not yet announced. Keep null to count down to start of Nov 29 in Asia/Kolkata
     time: null,
-    timeDisplayNote: "Time will be announced soon (Targeting 00:00 Midnight IST)",
+    timeDisplayNote: "Evening 6.30 pm",
     timezone: "Asia/Kolkata",
     // 2026-11-29T00:00:00+05:30 in ISO format
     isoDateTarget: "2026-11-29T00:00:00+05:30",
@@ -138,7 +138,7 @@ export const engagementConfig: EngagementConfig = {
     country: "India",
     fullAddress: "Malligai Thirumana Mandapam, Thiruvannamalai, Tamil Nadu, India",
     // Direct Google Maps address search query (no invented GPS coordinates)
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Malligai+Thirumana+Mandapam,+Thiruvannamalai,+Tamil+Nadu,+India",
+    googleMapsUrl: "https://maps.app.goo.gl/bbFC4zc2J3MWX7iB6?g_st=ac",
   },
   reception: {
     enabled: false, // Disabled until details are supplied
