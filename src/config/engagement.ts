@@ -130,12 +130,12 @@ export const engagementConfig: EngagementConfig = {
     isoDateTarget: "2026-11-29T00:00:00+05:30",
   },
   venue: {
-    name: "Malligai Thirumana Mandapam",
+    name: "Malliha Mahal",
     hall: "Main Marriage Hall",
     city: "Thiruvannamalai",
     state: "Tamil Nadu",
     country: "India",
-    fullAddress: "Malligai Thirumana Mandapam, Thiruvannamalai, Tamil Nadu, India",
+    fullAddress: "Malliha Mahal, Thiruvannamalai, Tamil Nadu, India",
     googleMapsUrl: "https://maps.app.goo.gl/RB2mPJwH2bNeuEye9?g_st=ac",
   },
   reception: {
