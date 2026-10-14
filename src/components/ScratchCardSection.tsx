@@ -14,17 +14,15 @@ export const ScratchCardSection: React.FC = () => {
   const [isDrawing, setIsDrawing] = useState(false);
   const [hasTriggeredConfetti, setHasTriggeredConfetti] = useState(false);
 
-  // Trigger celebration confetti
   const triggerCelebration = useCallback(() => {
     if (hasTriggeredConfetti) return;
     setHasTriggeredConfetti(true);
 
     try {
-      // Golden and blush rose confetti burst
       const count = 120;
       const defaults = {
         origin: { y: 0.6 },
-        colors: ["#D4AF37", "#FCE1E7", "#9FB992", "#FFF2B2", "#EE9EB3"],
+        colors: ["#D4AF37", "#e8a0b5", "#faf3e0", "#FFF2B2", "#967418"],
       };
 
       confetti({
@@ -44,13 +42,11 @@ export const ScratchCardSection: React.FC = () => {
     }
   }, [hasTriggeredConfetti]);
 
-  // Reveal card helper
   const completeReveal = useCallback(() => {
     setIsRevealed(true);
     setScratchPercent(100);
     triggerCelebration();
 
-    // Clear canvas completely
     const canvas = canvasRef.current;
     if (canvas) {
       const ctx = canvas.getContext("2d");
@@ -60,7 +56,6 @@ export const ScratchCardSection: React.FC = () => {
     }
   }, [triggerCelebration]);
 
-  // Draw the luxury scratch cover onto canvas
   const initCanvas = useCallback(() => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
@@ -76,62 +71,61 @@ export const ScratchCardSection: React.FC = () => {
 
     const ctx = canvas.getContext("2d", { willReadFrequently: true });
     if (!ctx) return;
-
     ctx.scale(dpr, dpr);
 
-    // Luxury shimmering gold/champagne gradient background
+    // Dark navy to midnight gradient
     const grad = ctx.createLinearGradient(0, 0, rect.width, rect.height);
-    grad.addColorStop(0, "#C5A059");
-    grad.addColorStop(0.3, "#F3E5AB");
-    grad.addColorStop(0.5, "#DFBA5C");
-    grad.addColorStop(0.8, "#F7E8BA");
-    grad.addColorStop(1, "#967418");
+    grad.addColorStop(0, "#0f1629");
+    grad.addColorStop(0.3, "#1a2340");
+    grad.addColorStop(0.5, "#151a30");
+    grad.addColorStop(0.7, "#1a2340");
+    grad.addColorStop(1, "#0c0a1a");
 
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, rect.width, rect.height);
 
-    // Subtle decorative borders on scratch surface
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.45)";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(12, 12, rect.width - 24, rect.height - 24);
+    // Gold border lines
+    ctx.strokeStyle = "rgba(212, 175, 55, 0.2)";
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(14, 14, rect.width - 28, rect.height - 28);
 
-    ctx.setLineDash([6, 4]);
-    ctx.strokeStyle = "rgba(150, 116, 24, 0.4)";
-    ctx.strokeRect(18, 18, rect.width - 36, rect.height - 36);
+    ctx.setLineDash([8, 4]);
+    ctx.strokeStyle = "rgba(212, 175, 55, 0.1)";
+    ctx.strokeRect(20, 20, rect.width - 40, rect.height - 40);
     ctx.setLineDash([]);
 
-    // Decorative text on scratch surface
-    ctx.fillStyle = "#2A2521";
+    // Add cross symbol
+    ctx.fillStyle = "rgba(212, 175, 55, 0.08)";
+    ctx.fillRect(rect.width / 2 - 4, rect.height / 2 - 50, 8, 100);
+    ctx.fillRect(rect.width / 2 - 30, rect.height / 2 - 20, 60, 8);
+
+    // Text on scratch surface
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
-    // Sparkle icon drawing
-    ctx.fillStyle = "#8C6514";
-    ctx.font = "bold 13px 'Cinzel', serif";
-    ctx.fillText("✨ SECRET INVITATION DETAILS ✨", rect.width / 2, rect.height / 2 - 35);
+    ctx.fillStyle = "rgba(212, 175, 55, 0.6)";
+    ctx.font = "bold 12px 'Cinzel', serif";
+    ctx.fillText("✦ SECRET INVITATION DETAILS ✦", rect.width / 2, rect.height / 2 - 40);
 
-    ctx.fillStyle = "#2A2521";
-    ctx.font = "bold 17px 'Playfair Display', Georgia, serif";
+    ctx.fillStyle = "rgba(250, 243, 224, 0.7)";
+    ctx.font = "bold 16px 'Playfair Display', Georgia, serif";
     ctx.fillText("A Special Day Is Waiting", rect.width / 2, rect.height / 2 - 5);
     ctx.fillText("to Be Revealed", rect.width / 2, rect.height / 2 + 18);
 
-    ctx.fillStyle = "#6A6059";
-    ctx.font = "italic 13px 'Cormorant Garamond', Georgia, serif";
-    ctx.fillText("Scratch here with touch or mouse!", rect.width / 2, rect.height / 2 + 48);
+    ctx.fillStyle = "rgba(212, 175, 55, 0.4)";
+    ctx.font = "italic 12px 'Cormorant Garamond', Georgia, serif";
+    ctx.fillText("Scratch here with touch or mouse!", rect.width / 2, rect.height / 2 + 50);
   }, []);
 
   useEffect(() => {
     initCanvas();
     const handleResize = () => {
-      if (!isRevealed) {
-        initCanvas();
-      }
+      if (!isRevealed) initCanvas();
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [initCanvas, isRevealed]);
 
-  // Scratch check percentage
   const calculateScratchedArea = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas || isRevealed) return;
@@ -143,31 +137,21 @@ export const ScratchCardSection: React.FC = () => {
       const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
       const data = imgData.data;
       let transparentPixels = 0;
-      const totalPixels = data.length / 4;
-
-      // Sample every 16th pixel for high performance
       const stride = 16;
       let sampled = 0;
       for (let i = 3; i < data.length; i += 4 * stride) {
         sampled++;
-        if (data[i] === 0) {
-          transparentPixels++;
-        }
+        if (data[i] === 0) transparentPixels++;
       }
 
       const percent = Math.round((transparentPixels / sampled) * 100);
       setScratchPercent(percent);
-
-      // Reveal if threshold (~40%) reached
-      if (percent >= 38) {
-        completeReveal();
-      }
+      if (percent >= 38) completeReveal();
     } catch {
-      // In case of security restrictions
+      // Security restrictions
     }
   }, [isRevealed, completeReveal]);
 
-  // Erase at point
   const scratch = (clientX: number, clientY: number) => {
     const canvas = canvasRef.current;
     if (!canvas || isRevealed) return;
@@ -182,14 +166,12 @@ export const ScratchCardSection: React.FC = () => {
 
     ctx.globalCompositeOperation = "destination-out";
     ctx.beginPath();
-    // Generous smooth scratch circle brush
     ctx.arc(x, y, 28 * dpr, 0, Math.PI * 2);
     ctx.fill();
 
     calculateScratchedArea();
   };
 
-  // Mouse handlers
   const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
     setIsDrawing(true);
     scratch(e.clientX, e.clientY);
@@ -200,80 +182,69 @@ export const ScratchCardSection: React.FC = () => {
     scratch(e.clientX, e.clientY);
   };
 
-  const handleMouseUp = () => {
-    setIsDrawing(false);
-  };
+  const handleMouseUp = () => setIsDrawing(false);
 
-  // Touch handlers
   const handleTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
     if (e.touches.length > 0) {
       setIsDrawing(true);
-      const touch = e.touches[0];
-      scratch(touch.clientX, touch.clientY);
+      scratch(e.touches[0].clientX, e.touches[0].clientY);
     }
   };
 
   const handleTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
     if (!isDrawing || e.touches.length === 0) return;
-    const touch = e.touches[0];
-    scratch(touch.clientX, touch.clientY);
-  };
-
-  const handleTouchEnd = () => {
-    setIsDrawing(false);
+    scratch(e.touches[0].clientX, e.touches[0].clientY);
   };
 
   return (
-    <section className="relative py-10 px-4 sm:px-6 w-full max-w-xl mx-auto text-center">
-      {/* Section Header */}
-      <div className="mb-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blush-100/80 border border-blush-300 text-blush-500 text-xs font-cinzel font-semibold tracking-wider mb-2">
+    <section className="relative py-12 px-4 sm:px-6 w-full max-w-xl mx-auto text-center">
+      {/* Header */}
+      <div className="mb-5">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-300/10 border border-rose-300/20 text-rose-300 text-xs font-cinzel font-semibold tracking-wider mb-3">
           <Sparkles className="w-3.5 h-3.5" />
           Interactive Experience
         </div>
-        <h3 className="font-playfair text-2xl sm:text-3xl text-[#2A2521] font-semibold">
+        <h3 className="font-playfair text-2xl sm:text-3xl text-cream font-semibold">
           A Special Day Is Waiting to Be Revealed
         </h3>
-        <p className="font-serif italic text-base text-[#6A6059] mt-1">
+        <p className="font-serif italic text-base text-gold-300/60 mt-1.5">
           Scratch here to discover our engagement celebration!
         </p>
       </div>
 
-      {/* The Scratch Card Container */}
+      {/* Scratch Card */}
       <div
         ref={containerRef}
-        className="relative w-full aspect-[1/1.05] sm:aspect-[1.2/1] rounded-2xl glass-card border-2 border-gold-400/60 shadow-xl overflow-hidden p-6 sm:p-8 flex flex-col justify-between items-center text-center select-none"
+        className="relative w-full aspect-[1/1.05] sm:aspect-[1.2/1] rounded-3xl glass-card gradient-border shadow-card overflow-hidden p-6 sm:p-8 flex flex-col justify-between items-center text-center select-none"
       >
-        {/* REVEALED CONTENT (Lies underneath the canvas) */}
-        <div className="relative z-0 w-full h-full flex flex-col justify-between items-center py-2">
-          {/* Top Tag */}
-          <div className="flex items-center gap-2 text-gold-600 font-cinzel text-xs tracking-widest font-semibold uppercase">
-            <Heart className="w-3.5 h-3.5 fill-gold-500 text-gold-500" />
+        {/* Revealed Content */}
+        <div className="relative z-0 w-full h-full flex flex-col justify-between items-center py-3">
+          {/* Top tag */}
+          <div className="flex items-center gap-2 text-gold-400 font-cinzel text-xs tracking-widest font-semibold uppercase">
+            <Heart className="w-3.5 h-3.5 fill-gold-400 text-gold-400" />
             <span>{engagementConfig.event.title}</span>
-            <Heart className="w-3.5 h-3.5 fill-gold-500 text-gold-500" />
+            <Heart className="w-3.5 h-3.5 fill-gold-400 text-gold-400" />
           </div>
 
-          {/* Couple Names */}
-          <div className="my-auto space-y-1">
-            <h4 className="font-script text-3xl sm:text-4xl md:text-5xl text-[#2A2521]">
+          {/* Couple names */}
+          <div className="my-auto space-y-1.5">
+            <h4 className="font-script text-3xl sm:text-4xl md:text-5xl gold-gradient-text animate-shimmer">
               {engagementConfig.couple.groom.fullName}
             </h4>
-            <p className="font-cinzel text-xs text-gold-600 tracking-widest italic font-bold">
-              &amp;
-            </p>
-            <h4 className="font-script text-3xl sm:text-4xl md:text-5xl text-[#2A2521]">
+            <p className="font-cinzel text-xs text-gold-400/50 tracking-widest italic font-bold">&amp;</p>
+            <h4 className="font-script text-3xl sm:text-4xl md:text-5xl gold-gradient-text animate-shimmer">
               {engagementConfig.couple.bride.fullName}
             </h4>
           </div>
 
-          {/* Date & Venue Details Revealed */}
-          <div className="space-y-2 w-full pt-2 border-t border-gold-300/40">
-            <div className="flex items-center justify-center gap-2 text-[#967418] font-cinzel text-sm sm:text-base font-semibold">
-              <Calendar className="w-4 h-4 text-gold-500" />
+          {/* Date & Venue */}
+          <div className="space-y-2 w-full pt-3 border-t border-gold-400/10">
+            <div className="flex items-center justify-center gap-2 text-gold-400 font-cinzel text-sm sm:text-base font-semibold">
+              <Calendar className="w-4 h-4" />
               <span>{engagementConfig.event.date}</span>
             </div>
-            <div className="flex items-center justify-center gap-2 text-[#6A6059] font-sans text-xs sm:text-sm">
-              <MapPin className="w-4 h-4 text-gold-500 shrink-0" />
+            <div className="flex items-center justify-center gap-2 text-gold-300/50 font-sans text-xs sm:text-sm">
+              <MapPin className="w-4 h-4 shrink-0" />
               <span className="truncate max-w-[90%]">
                 {engagementConfig.venue.name}, {engagementConfig.venue.city}
               </span>
@@ -281,7 +252,7 @@ export const ScratchCardSection: React.FC = () => {
           </div>
         </div>
 
-        {/* SCRATCH CANVAS OVERLAY */}
+        {/* Scratch Canvas */}
         <AnimatePresence>
           {!isRevealed && (
             <canvas
@@ -295,37 +266,37 @@ export const ScratchCardSection: React.FC = () => {
               onMouseLeave={handleMouseUp}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
+              onTouchEnd={() => setIsDrawing(false)}
             />
           )}
         </AnimatePresence>
 
-        {/* Scratch Progress indicator (shown while scratching) */}
+        {/* Progress */}
         {!isRevealed && scratchPercent > 0 && (
-          <div className="absolute bottom-2 z-20 px-3 py-0.5 rounded-full bg-black/60 text-white text-[10px] font-sans pointer-events-none">
+          <div className="absolute bottom-3 z-20 px-4 py-1 rounded-full bg-gold-400/20 backdrop-blur-sm text-gold-300 text-[10px] font-sans pointer-events-none border border-gold-400/20">
             {scratchPercent}% revealed
           </div>
         )}
       </div>
 
-      {/* Accessible Fallback Button */}
-      <div className="mt-4 flex flex-col items-center gap-2">
+      {/* Fallback Button */}
+      <div className="mt-5 flex flex-col items-center gap-2">
         {!isRevealed ? (
           <button
             onClick={completeReveal}
             id="reveal-invitation-fallback-btn"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold-400 bg-white/80 hover:bg-gold-50 text-gold-700 font-cinzel text-xs font-semibold tracking-wider transition-all shadow-sm active:scale-95"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-gold-400/30 bg-gold-400/5 hover:bg-gold-400/10 text-gold-400 font-cinzel text-xs font-semibold tracking-wider transition-all shadow-gold-soft active:scale-95"
           >
-            <Eye className="w-4 h-4 text-gold-500" />
+            <Eye className="w-4 h-4" />
             Reveal Invitation Details
           </button>
         ) : (
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sage-100 border border-sage-300 text-sage-600 text-xs font-sans font-medium"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gold-400/10 border border-gold-400/20 text-gold-400 text-xs font-sans font-medium"
           >
-            <Sparkles className="w-3.5 h-3.5 text-sage-500" />
+            <Sparkles className="w-3.5 h-3.5" />
             Invitation revealed with blessings!
           </motion.div>
         )}

@@ -3,167 +3,190 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Calendar, Clock, MapPin, Sparkles, Shirt, Wine } from "lucide-react";
-import Image from "next/image";
 import { engagementConfig } from "@/config/engagement";
 
 export const EventDetailsSection: React.FC = () => {
   return (
-    <section className="relative py-12 px-4 sm:px-6 w-full max-w-xl mx-auto text-center">
+    <section className="relative py-14 px-4 sm:px-6 w-full max-w-xl mx-auto text-center">
       {/* Header */}
-      <div className="mb-6">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-100 border border-gold-300 text-gold-700 text-xs font-cinzel font-semibold tracking-wider mb-2">
+      <div className="mb-8">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gold-400/10 border border-gold-400/20 text-gold-400 text-xs font-cinzel font-semibold tracking-wider mb-3"
+        >
           <Sparkles className="w-3.5 h-3.5" />
           Ceremony Information
-        </div>
-        <h3 className="font-playfair text-2xl sm:text-3xl text-[#2A2521] font-semibold">
+        </motion.div>
+        <h3 className="font-playfair text-2xl sm:text-3xl text-cream font-semibold">
           Engagement Ceremony Details
         </h3>
-        <p className="font-serif italic text-base text-[#6A6059] mt-1">
+        <p className="font-serif italic text-base text-gold-300/60 mt-1.5">
           {engagementConfig.couple.groom.name} &amp; {engagementConfig.couple.bride.name}
         </p>
       </div>
 
-      {/* Main Ornate Event Card */}
+      {/* Event Card */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="relative p-6 sm:p-8 rounded-3xl glass-card border-2 border-gold-400/50 shadow-soft"
+        className="relative p-6 sm:p-8 rounded-3xl glass-card gradient-border shadow-card overflow-hidden"
       >
-        {/* Corner floral elements */}
-        <div className="absolute top-2 left-2 w-8 h-8 pointer-events-none opacity-75">
-          <Image src="/images/floral-corner.svg" alt="" width={32} height={32} />
-        </div>
-        <div className="absolute top-2 right-2 w-8 h-8 pointer-events-none opacity-75 rotate-90">
-          <Image src="/images/floral-corner.svg" alt="" width={32} height={32} />
-        </div>
-        <div className="absolute bottom-2 left-2 w-8 h-8 pointer-events-none opacity-75 -rotate-90">
-          <Image src="/images/floral-corner.svg" alt="" width={32} height={32} />
-        </div>
-        <div className="absolute bottom-2 right-2 w-8 h-8 pointer-events-none opacity-75 rotate-180">
-          <Image src="/images/floral-corner.svg" alt="" width={32} height={32} />
-        </div>
+        {/* Corner accents */}
+        {["top-3 left-3", "top-3 right-3 rotate-90", "bottom-3 left-3 -rotate-90", "bottom-3 right-3 rotate-180"].map(
+          (pos, i) => (
+            <div key={i} className={`absolute ${pos} w-6 h-6 pointer-events-none opacity-30`}>
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M0 0 L8 0 L8 1.5 L1.5 1.5 L1.5 8 L0 8 Z" fill="rgba(212, 175, 55, 0.8)" />
+              </svg>
+            </div>
+          )
+        )}
 
         {/* Event Header */}
-        <div className="space-y-1 pb-5 border-b border-gold-300/40">
-          <span className="font-cinzel text-xs tracking-[0.25em] uppercase text-gold-600 font-semibold">
+        <div className="space-y-1.5 pb-6 border-b border-gold-400/10 relative z-10">
+          <span className="font-cinzel text-[10px] tracking-[0.3em] uppercase text-gold-400/60 font-semibold">
             {engagementConfig.event.subtitle}
           </span>
-          <h4 className="font-cinzel text-2xl sm:text-3xl font-bold text-[#8C6514] tracking-wide">
+          <h4 className="font-cinzel text-2xl sm:text-3xl font-bold gold-gradient-text tracking-wide">
             {engagementConfig.event.title}
           </h4>
         </div>
 
-        {/* Key Event Details Grid */}
-        <div className="py-6 space-y-5 text-left max-w-md mx-auto">
+        {/* Event Details Grid */}
+        <div className="py-6 space-y-4 text-left max-w-md mx-auto relative z-10">
           {/* Date */}
-          <div className="flex items-start gap-4 p-3.5 rounded-xl bg-white/70 border border-gold-200/70 shadow-sm">
-            <div className="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center text-gold-600 shrink-0">
+          <motion.div
+            initial={{ opacity: 0, x: -15 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="flex items-start gap-4 p-4 rounded-2xl bg-gold-400/5 border border-gold-400/10 hover:border-gold-400/25 transition-all duration-500 group"
+          >
+            <div className="w-11 h-11 rounded-xl bg-gold-400/10 flex items-center justify-center text-gold-400 shrink-0 group-hover:shadow-gold-soft transition-shadow duration-500">
               <Calendar className="w-5 h-5" />
             </div>
             <div>
-              <p className="font-cinzel text-xs uppercase tracking-wider text-gold-700 font-semibold">
+              <p className="font-cinzel text-[10px] uppercase tracking-[0.2em] text-gold-400/60 font-semibold">
                 Event Date
               </p>
-              <p className="font-playfair text-lg text-[#2A2521] font-semibold">
+              <p className="font-playfair text-lg text-cream font-semibold mt-0.5">
                 {engagementConfig.event.date}
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Time (Editable - indicates if not yet announced) */}
-          <div className="flex items-start gap-4 p-3.5 rounded-xl bg-white/70 border border-gold-200/70 shadow-sm">
-            <div className="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center text-gold-600 shrink-0">
+          {/* Time */}
+          <motion.div
+            initial={{ opacity: 0, x: -15 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex items-start gap-4 p-4 rounded-2xl bg-gold-400/5 border border-gold-400/10 hover:border-gold-400/25 transition-all duration-500 group"
+          >
+            <div className="w-11 h-11 rounded-xl bg-gold-400/10 flex items-center justify-center text-gold-400 shrink-0 group-hover:shadow-gold-soft transition-shadow duration-500">
               <Clock className="w-5 h-5" />
             </div>
             <div>
-              <p className="font-cinzel text-xs uppercase tracking-wider text-gold-700 font-semibold">
+              <p className="font-cinzel text-[10px] uppercase tracking-[0.2em] text-gold-400/60 font-semibold">
                 Ceremony Timing
               </p>
               {engagementConfig.event.time ? (
-                <p className="font-playfair text-lg text-[#2A2521] font-semibold">
+                <p className="font-playfair text-lg text-cream font-semibold mt-0.5">
                   {engagementConfig.event.time}
+                </p>
+              ) : engagementConfig.event.timeDisplayNote ? (
+                <p className="font-playfair text-lg text-cream font-semibold mt-0.5">
+                  {engagementConfig.event.timeDisplayNote}
                 </p>
               ) : (
                 <div className="space-y-0.5">
-                  <p className="font-serif italic text-base text-[#2A2521]">
+                  <p className="font-serif italic text-base text-cream/80">
                     To be announced soon
                   </p>
-                  <p className="font-sans text-[11px] text-[#7D736A]">
+                  <p className="font-sans text-[11px] text-gold-400/40">
                     (Will be updated once confirmed by families)
                   </p>
                 </div>
               )}
             </div>
-          </div>
+          </motion.div>
 
           {/* Venue */}
-          <div className="flex items-start gap-4 p-3.5 rounded-xl bg-white/70 border border-gold-200/70 shadow-sm">
-            <div className="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center text-gold-600 shrink-0">
+          <motion.div
+            initial={{ opacity: 0, x: -15 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="flex items-start gap-4 p-4 rounded-2xl bg-gold-400/5 border border-gold-400/10 hover:border-gold-400/25 transition-all duration-500 group"
+          >
+            <div className="w-11 h-11 rounded-xl bg-gold-400/10 flex items-center justify-center text-gold-400 shrink-0 group-hover:shadow-gold-soft transition-shadow duration-500">
               <MapPin className="w-5 h-5" />
             </div>
             <div>
-              <p className="font-cinzel text-xs uppercase tracking-wider text-gold-700 font-semibold">
+              <p className="font-cinzel text-[10px] uppercase tracking-[0.2em] text-gold-400/60 font-semibold">
                 Ceremony Venue
               </p>
-              <p className="font-playfair text-lg text-[#2A2521] font-semibold">
+              <p className="font-playfair text-lg text-cream font-semibold mt-0.5">
                 {engagementConfig.venue.name}
               </p>
-              <p className="font-sans text-xs text-[#6A6059] mt-0.5">
+              <p className="font-sans text-xs text-gold-300/50 mt-0.5">
                 {engagementConfig.venue.city}, {engagementConfig.venue.state}, {engagementConfig.venue.country}
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Dress Code (Conditional, disabled by default) */}
+          {/* Dress Code */}
           {engagementConfig.dressCode?.enabled && (
-            <div className="flex items-start gap-4 p-3.5 rounded-xl bg-white/70 border border-gold-200/70 shadow-sm">
-              <div className="w-10 h-10 rounded-full bg-blush-100 flex items-center justify-center text-blush-500 shrink-0">
+            <motion.div
+              initial={{ opacity: 0, x: -15 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-start gap-4 p-4 rounded-2xl bg-rose-300/5 border border-rose-300/10 transition-all duration-500"
+            >
+              <div className="w-11 h-11 rounded-xl bg-rose-300/10 flex items-center justify-center text-rose-300 shrink-0">
                 <Shirt className="w-5 h-5" />
               </div>
               <div>
-                <p className="font-cinzel text-xs uppercase tracking-wider text-gold-700 font-semibold">
+                <p className="font-cinzel text-[10px] uppercase tracking-[0.2em] text-gold-400/60 font-semibold">
                   {engagementConfig.dressCode.title || "Dress Code"}
                 </p>
-                <p className="font-serif text-base text-[#2A2521]">
+                <p className="font-serif text-base text-cream mt-0.5">
                   {engagementConfig.dressCode.theme}
                 </p>
-                {engagementConfig.dressCode.description && (
-                  <p className="font-sans text-xs text-[#6A6059] mt-0.5">
-                    {engagementConfig.dressCode.description}
-                  </p>
-                )}
               </div>
-            </div>
+            </motion.div>
           )}
 
-          {/* Reception Details (Conditional, disabled by default) */}
+          {/* Reception */}
           {engagementConfig.reception?.enabled && (
-            <div className="flex items-start gap-4 p-3.5 rounded-xl bg-white/70 border border-gold-200/70 shadow-sm">
-              <div className="w-10 h-10 rounded-full bg-sage-100 flex items-center justify-center text-sage-600 shrink-0">
+            <motion.div
+              initial={{ opacity: 0, x: -15 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-start gap-4 p-4 rounded-2xl bg-sage-400/5 border border-sage-400/10 transition-all duration-500"
+            >
+              <div className="w-11 h-11 rounded-xl bg-sage-400/10 flex items-center justify-center text-sage-400 shrink-0">
                 <Wine className="w-5 h-5" />
               </div>
               <div>
-                <p className="font-cinzel text-xs uppercase tracking-wider text-gold-700 font-semibold">
+                <p className="font-cinzel text-[10px] uppercase tracking-[0.2em] text-gold-400/60 font-semibold">
                   {engagementConfig.reception.title || "Reception"}
                 </p>
-                <p className="font-serif text-base text-[#2A2521]">
+                <p className="font-serif text-base text-cream mt-0.5">
                   {engagementConfig.reception.venue || engagementConfig.venue.name}
                 </p>
-                {engagementConfig.reception.time && (
-                  <p className="font-sans text-xs text-[#6A6059] mt-0.5">
-                    {engagementConfig.reception.time}
-                  </p>
-                )}
               </div>
-            </div>
+            </motion.div>
           )}
         </div>
 
-        {/* Required Invitation Welcome Message */}
-        <div className="pt-5 border-t border-gold-300/40">
-          <p className="font-serif italic text-base sm:text-lg text-[#2A2521] leading-relaxed">
+        {/* Welcome message */}
+        <div className="pt-6 border-t border-gold-400/10 relative z-10">
+          <p className="font-serif italic text-base sm:text-lg text-gold-300/70 leading-relaxed">
             &ldquo;We warmly welcome you to share in our happiness and bless us as we begin this beautiful new chapter together.&rdquo;
           </p>
         </div>

@@ -147,20 +147,20 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoStartOnInteraction
         onClick={toggleMusic}
         id="music-toggle-btn"
         aria-label={isPlaying ? "Mute background music" : "Play romantic background music"}
-        className="fixed top-4 right-4 z-50 flex items-center gap-2 px-3 py-2 rounded-full glass-card border border-gold-400/40 text-[#2A2521] shadow-lg hover:shadow-gold transition-all duration-300 transform active:scale-95 group"
+        className="fixed top-4 right-4 z-50 flex items-center gap-2 px-3.5 py-2 rounded-full bg-midnight-900/90 border border-gold-400/50 text-gold-300 shadow-gold backdrop-blur-xl hover:bg-midnight-800 transition-all duration-300 transform active:scale-95 group"
       >
-        <div className="relative w-5 h-5 flex items-center justify-center text-gold-500">
+        <div className="relative w-5 h-5 flex items-center justify-center text-gold-400">
           {isPlaying ? (
             <div className="flex items-end gap-[2px] h-3.5">
-              <span className="w-1 bg-gold-500 rounded-full animate-[pulse_0.8s_ease-in-out_infinite] h-3.5" />
-              <span className="w-1 bg-gold-400 rounded-full animate-[pulse_0.6s_ease-in-out_infinite_0.2s] h-2.5" />
-              <span className="w-1 bg-gold-500 rounded-full animate-[pulse_0.9s_ease-in-out_infinite_0.4s] h-3" />
+              <span className="w-1 bg-gold-400 rounded-full animate-[pulse_0.8s_ease-in-out_infinite] h-3.5" />
+              <span className="w-1 bg-gold-300 rounded-full animate-[pulse_0.6s_ease-in-out_infinite_0.2s] h-2.5" />
+              <span className="w-1 bg-gold-400 rounded-full animate-[pulse_0.9s_ease-in-out_infinite_0.4s] h-3" />
             </div>
           ) : (
-            <VolumeX className="w-4 h-4 text-[#8C6514]" />
+            <VolumeX className="w-4 h-4 text-gold-400" />
           )}
         </div>
-        <span className="text-xs font-serif font-medium tracking-wider text-[#6A6059] group-hover:text-gold-600 hidden sm:inline">
+        <span className="text-xs font-cinzel font-semibold tracking-wider text-gold-200 group-hover:text-gold-100 hidden sm:inline">
           {isPlaying ? "Music Playing" : "Play Music"}
         </span>
       </button>

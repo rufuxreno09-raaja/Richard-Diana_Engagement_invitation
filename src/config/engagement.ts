@@ -12,23 +12,22 @@ export interface EngagementConfig {
       parents?: string;
       initial: string;
     };
-    monogram: string; // e.g. "R & D"
-    photo?: string; // Path or URL to couple photo
+    monogram: string;
+    photo?: string;
     photoPlaceholderAlt: string;
   };
   event: {
     title: string;
     subtitle: string;
-    date: string; // Formatted date string
+    date: string;
     dayOfWeek: string;
     year: number;
-    month: number; // 1-12
+    month: number;
     day: number;
-    // Time configuration: null or empty string means time is yet to be announced (counts down to midnight 00:00 IST)
     time: string | null;
     timeDisplayNote?: string;
-    timezone: string; // "Asia/Kolkata"
-    isoDateTarget: string; // Target ISO string for countdown
+    timezone: string;
+    isoDateTarget: string;
   };
   venue: {
     name: string;
@@ -37,7 +36,6 @@ export interface EngagementConfig {
     state: string;
     country: string;
     fullAddress: string;
-    // Real Google Maps search URL without fake lat/long
     googleMapsUrl: string;
   };
   reception: {
@@ -86,7 +84,7 @@ export interface EngagementConfig {
     artist?: string;
   };
   sharing: {
-    invitationUrl: string; // Will fallback to current window location
+    invitationUrl: string;
     messageTemplate: string;
     hashtags?: string;
   };
@@ -95,6 +93,10 @@ export interface EngagementConfig {
     description: string;
     ogImage: string;
     themeColor: string;
+  };
+  bibleVerse: {
+    text: string;
+    reference: string;
   };
 }
 
@@ -106,14 +108,13 @@ export const engagementConfig: EngagementConfig = {
       initial: "R",
     },
     bride: {
-      name: "Diana Joe",
-      fullName: "Diana Joe",
+      name: "Diana Jose",
+      fullName: "Diana Jose",
       initial: "D",
     },
     monogram: "R & D",
-    // Neutral romantic floral emblem placeholder by default
-    photo: "image1.jpeg",
-    photoPlaceholderAlt: "Richard Rex and Diana Joe Engagement Emblem",
+    photo: "/images/couple-photo.jpg",
+    photoPlaceholderAlt: "Richard Rex and Diana Jose Engagement Photo",
   },
   event: {
     title: "Engagement Ceremony",
@@ -123,11 +124,9 @@ export const engagementConfig: EngagementConfig = {
     year: 2026,
     month: 11,
     day: 29,
-    // Time is not yet announced. Keep null to count down to start of Nov 29 in Asia/Kolkata
     time: null,
     timeDisplayNote: "Evening 6.30 pm",
     timezone: "Asia/Kolkata",
-    // 2026-11-29T00:00:00+05:30 in ISO format
     isoDateTarget: "2026-11-29T00:00:00+05:30",
   },
   venue: {
@@ -137,11 +136,10 @@ export const engagementConfig: EngagementConfig = {
     state: "Tamil Nadu",
     country: "India",
     fullAddress: "Malligai Thirumana Mandapam, Thiruvannamalai, Tamil Nadu, India",
-    // Direct Google Maps address search query (no invented GPS coordinates)
     googleMapsUrl: "https://maps.app.goo.gl/RB2mPJwH2bNeuEye9?g_st=ac",
   },
   reception: {
-    enabled: false, // Disabled until details are supplied
+    enabled: false,
     title: "Family Reception",
     date: "To be announced",
     time: "To be announced",
@@ -149,7 +147,7 @@ export const engagementConfig: EngagementConfig = {
     notes: "Reception details will be updated once confirmed.",
   },
   dressCode: {
-    enabled: false, // Disabled until details are supplied
+    enabled: false,
     title: "Dress Code",
     theme: "Traditional / Elegant Formal",
     description: "Pastel shades, ivory, blush pink, or celebratory formal attire.",
@@ -157,10 +155,9 @@ export const engagementConfig: EngagementConfig = {
   announcement: {
     tagline: "Together with our families",
     message:
-      "With the blessings of God and the love of our families, we joyfully invite you to celebrate the engagement of Richard Rex and Diana Joe. Your presence, prayers, and blessings will make this special occasion even more memorable.",
+      "With the blessings of God and the love of our families, we joyfully invite you to celebrate the engagement of Richard Rex and Diana Jose. Your presence, prayers, and blessings will make this special occasion even more memorable.",
   },
   schedule: {
-    // Disabled until confirmed by organizers
     enabled: false,
     note: "Suggested itinerary — specific timings will be updated upon final confirmation.",
     items: [
@@ -191,14 +188,13 @@ export const engagementConfig: EngagementConfig = {
     ],
   },
   gallery: {
-    // Elegant tasteful floral placeholders enabled
     enabled: true,
     title: "Moments of Grace",
     subtitle: "A glimpse of love, devotion, and celebration",
     images: [
       {
         id: "gallery-1",
-        url: "/images/gallery-floral-1.svg",
+        url: "/images/couple-photo.jpg",
         caption: "A Journey of Love & Grace",
         category: "Romance",
       },
@@ -224,7 +220,6 @@ export const engagementConfig: EngagementConfig = {
   },
   audio: {
     enabled: true,
-    // Gentle romantic Christian acoustic instrumental track placeholder
     src: "/music/acoustic-romance.mp3",
     title: "Gentle Hymn of Love (Instrumental)",
     artist: "Acoustic Blessing",
@@ -232,14 +227,18 @@ export const engagementConfig: EngagementConfig = {
   sharing: {
     invitationUrl: "https://richard-diana-engagement.vercel.app",
     messageTemplate:
-      "🕊️ *Engagement Invitation* 🕊️\n\nWith the blessings of God and the love of our families, we joyfully invite you to the Engagement Ceremony of:\n\n✨ *Richard Rex & Diana Joe* ✨\n\n🗓️ *Date:* Sunday, November 29, 2026\n📍 *Venue:* Malligai Thirumana Mandapam, Thiruvannamalai, Tamil Nadu\n\nView our interactive engagement invitation card online:\n",
+      "🕊️ *Engagement Invitation* 🕊️\n\nWith the blessings of God and the love of our families, we joyfully invite you to the Engagement Ceremony of:\n\n✨ *Richard Rex & Diana Jose* ✨\n\n🗓️ *Date:* Sunday, November 29, 2026\n📍 *Venue:* Malligai Thirumana Mandapam, Thiruvannamalai, Tamil Nadu\n\nView our interactive engagement invitation card online:\n",
     hashtags: "RichardAndDiana #ChristianEngagement #BlessedBeginning",
   },
   meta: {
-    title: "Richard Rex & Diana Joe | Engagement Invitation",
+    title: "Richard Rex & Diana Jose | Engagement Invitation",
     description:
-      "Joyfully inviting you to celebrate the Engagement Ceremony of Richard Rex & Diana Joe on Sunday, November 29, 2026 at Malligai Thirumana Mandapam, Thiruvannamalai.",
+      "Joyfully inviting you to celebrate the Engagement Ceremony of Richard Rex & Diana Jose on Sunday, November 29, 2026 at Malligai Thirumana Mandapam, Thiruvannamalai.",
     ogImage: "/images/og-preview.png",
-    themeColor: "#FDFAF6",
+    themeColor: "#0c0a1a",
+  },
+  bibleVerse: {
+    text: "And now these three remain: faith, hope and love. But the greatest of these is love.",
+    reference: "1 Corinthians 13:13",
   },
 };

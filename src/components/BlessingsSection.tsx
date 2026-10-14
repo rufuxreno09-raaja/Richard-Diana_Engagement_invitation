@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowUp, Heart, Sparkles } from "lucide-react";
+import { ArrowUp, Sparkles, Heart } from "lucide-react";
 import Image from "next/image";
 import { engagementConfig } from "@/config/engagement";
 
@@ -13,84 +13,76 @@ interface BlessingsSectionProps {
 export const BlessingsSection: React.FC<BlessingsSectionProps> = ({ onReturnToCover }) => {
   return (
     <section className="relative py-14 px-4 sm:px-6 w-full max-w-xl mx-auto text-center">
-      {/* Decorative floral crest top */}
+      {/* Decorative Christian cross & dove symbol */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0.85 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="w-28 h-28 mx-auto mb-4 relative"
+        className="flex flex-col items-center justify-center mb-6"
       >
-        <Image
-          src="/images/couple-floral-crest.svg"
-          alt="Richard & Diana Crest"
-          fill
-          className="object-contain"
-        />
+        <div className="relative w-16 h-16 rounded-full bg-gold-500/10 border border-gold-400/40 flex items-center justify-center shadow-gold">
+          {/* Christian Cross */}
+          <svg className="w-8 h-8 text-gold-300 drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M11 2h2v6h5v2h-5v12h-2v-12h-5v-2h5z" />
+          </svg>
+        </div>
+        <span className="font-cinzel text-[11px] tracking-[0.3em] uppercase text-gold-400/80 mt-2 font-semibold">
+          SOLI DEO GLORIA
+        </span>
       </motion.div>
 
       {/* Main Closing Card */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className="relative p-6 sm:p-8 rounded-3xl glass-card border-2 border-gold-400/50 shadow-soft"
+        className="relative p-6 sm:p-8 rounded-3xl bg-midnight-800/85 backdrop-blur-xl border border-gold-400/40 shadow-[0_10px_35px_rgba(0,0,0,0.6)] text-center overflow-hidden"
       >
-        {/* Corner floral elements */}
-        <div className="absolute top-2 left-2 w-8 h-8 pointer-events-none opacity-75">
-          <Image src="/images/floral-corner.svg" alt="" width={32} height={32} />
-        </div>
-        <div className="absolute top-2 right-2 w-8 h-8 pointer-events-none opacity-75 rotate-90">
-          <Image src="/images/floral-corner.svg" alt="" width={32} height={32} />
-        </div>
-        <div className="absolute bottom-2 left-2 w-8 h-8 pointer-events-none opacity-75 -rotate-90">
-          <Image src="/images/floral-corner.svg" alt="" width={32} height={32} />
-        </div>
-        <div className="absolute bottom-2 right-2 w-8 h-8 pointer-events-none opacity-75 rotate-180">
-          <Image src="/images/floral-corner.svg" alt="" width={32} height={32} />
-        </div>
+        {/* Ambient gradient glow in background */}
+        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-48 h-48 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Closing Tag */}
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-100/80 border border-gold-300 text-gold-700 text-xs font-cinzel font-semibold tracking-wider mb-4">
-          <Sparkles className="w-3.5 h-3.5" />
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-300 text-xs font-cinzel font-semibold tracking-wider mb-5">
+          <Sparkles className="w-3.5 h-3.5 text-gold-400" />
           With Heartfelt Gratitude
         </div>
 
         {/* Required Closing Thank-You Text */}
-        <p className="font-serif italic text-lg sm:text-xl text-[#2A2521] leading-relaxed max-w-md mx-auto">
+        <p className="font-serif italic text-lg sm:text-xl text-cream-100 leading-relaxed max-w-md mx-auto">
           &ldquo;Thank you for being a part of our happiness. We look forward to celebrating this special milestone with your love, prayers, and blessings.&rdquo;
         </p>
 
         {/* Gold divider */}
-        <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto my-5" />
+        <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto my-6" />
 
         {/* Couple Names and Engagement Date */}
-        <div className="space-y-1">
-          <h4 className="font-script text-3xl sm:text-4xl text-[#967418]">
+        <div className="space-y-1.5">
+          <h4 className="font-script text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-100 to-gold-400">
             {engagementConfig.couple.groom.fullName} &amp; {engagementConfig.couple.bride.fullName}
           </h4>
-          <p className="font-cinzel text-xs tracking-widest uppercase text-[#6A6059] font-semibold mt-1">
+          <p className="font-cinzel text-xs tracking-[0.25em] uppercase text-gold-300/80 font-semibold mt-1">
             {engagementConfig.event.date}
           </p>
         </div>
 
         {/* Return to Cover Button */}
-        <div className="mt-8 pt-4 border-t border-gold-200/60">
+        <div className="mt-8 pt-5 border-t border-gold-400/20">
           <button
             onClick={onReturnToCover}
             id="return-to-cover-btn"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-gold-400 bg-white/80 hover:bg-gold-50 text-gold-700 font-cinzel text-xs font-semibold tracking-wider transition-all duration-300 shadow-sm active:scale-95"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-gold-400/50 bg-gold-500/15 hover:bg-gold-500/25 text-gold-200 font-cinzel text-xs font-semibold tracking-widest uppercase transition-all duration-300 shadow-gold active:scale-95"
           >
-            <ArrowUp className="w-4 h-4 text-gold-500" />
+            <ArrowUp className="w-4 h-4 text-gold-400" />
             <span>Return to Cover</span>
           </button>
         </div>
       </motion.div>
 
-      {/* Footer credit */}
-      <div className="mt-8 text-center text-[11px] font-serif italic text-[#7D736A]">
-        Lovingly created for Richard Rex &amp; Diana Joe &bull; November 29, 2026
+      {/* Footer credit - DIANA JOSE */}
+      <div className="mt-8 text-center text-xs font-serif italic text-cream-200/50">
+        Lovingly created for Richard Rex &amp; Diana Jose &bull; November 29, 2026
       </div>
     </section>
   );

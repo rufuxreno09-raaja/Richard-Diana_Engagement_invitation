@@ -44,26 +44,26 @@ export const metadata: Metadata = {
   description: engagementConfig.meta.description,
   keywords: [
     "Richard Rex",
-    "Diana Joe",
+    "Diana Jose",
     "Engagement Invitation",
     "Christian Engagement",
     "Thiruvannamalai",
     "Malligai Thirumana Mandapam",
     "November 29 2026",
   ],
-  authors: [{ name: "Richard Rex & Diana Joe" }],
+  authors: [{ name: "Richard Rex & Diana Jose" }],
   openGraph: {
     title: engagementConfig.meta.title,
     description: engagementConfig.meta.description,
     type: "website",
     locale: "en_US",
-    siteName: "Richard Rex & Diana Joe Engagement",
+    siteName: "Richard Rex & Diana Jose Engagement",
     images: [
       {
         url: engagementConfig.meta.ogImage,
         width: 1200,
         height: 630,
-        alt: "Richard Rex & Diana Joe Engagement Invitation",
+        alt: "Richard Rex & Diana Jose Engagement Invitation",
       },
     ],
   },
@@ -95,7 +95,7 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${playfair.variable} ${greatVibes.variable} ${cinzel.variable} ${montserrat.variable}`}
     >
-      <body className="min-h-screen bg-[#F8F4EC] text-[#2A2521] antialiased selection:bg-[#FCE1E7] selection:text-[#967418]">
+      <body className="min-h-screen bg-[#0c0a1a] text-[#faf3e0] antialiased">
         {children}
       </body>
     </html>

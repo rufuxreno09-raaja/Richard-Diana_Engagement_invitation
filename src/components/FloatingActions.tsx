@@ -49,16 +49,16 @@ export const FloatingActions: React.FC = () => {
 
   return (
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-auto max-w-[94vw]">
-      <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-full glass-card border border-gold-400/50 shadow-2xl backdrop-blur-xl">
+      <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-full bg-midnight-900/90 border border-gold-400/50 shadow-[0_8px_30px_rgba(0,0,0,0.8)] backdrop-blur-xl">
         {/* WhatsApp Share Button */}
         <button
           onClick={handleWhatsAppShare}
           id="whatsapp-share-btn"
           aria-label="Share on WhatsApp"
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-sans text-xs font-medium shadow-sm transition-transform active:scale-95"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-sans text-xs font-medium shadow-md transition-transform active:scale-95"
         >
           <MessageCircle className="w-4 h-4" />
-          <span className="hidden xs:inline">WhatsApp</span>
+          <span className="hidden xs:inline font-semibold">WhatsApp</span>
         </button>
 
         {/* Copy Link Button */}
@@ -66,16 +66,16 @@ export const FloatingActions: React.FC = () => {
           onClick={handleCopyLink}
           id="copy-invitation-link-btn"
           aria-label="Copy invitation link"
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 hover:bg-white text-gold-700 border border-gold-300 font-sans text-xs font-medium shadow-sm transition-transform active:scale-95"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-midnight-800 hover:bg-midnight-700 text-gold-300 border border-gold-400/40 font-sans text-xs font-medium shadow-sm transition-transform active:scale-95"
         >
           {copied ? (
             <>
-              <Check className="w-3.5 h-3.5 text-emerald-600" />
-              <span className="text-emerald-700">Copied!</span>
+              <Check className="w-3.5 h-3.5 text-emerald-400" />
+              <span className="text-emerald-300 font-medium">Copied!</span>
             </>
           ) : (
             <>
-              <Link2 className="w-3.5 h-3.5 text-gold-600" />
+              <Link2 className="w-3.5 h-3.5 text-gold-400" />
               <span>Copy Link</span>
             </>
           )}
@@ -88,10 +88,10 @@ export const FloatingActions: React.FC = () => {
           rel="noopener noreferrer"
           id="floating-directions-btn"
           aria-label="Get Google Maps Directions"
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gold-500 hover:bg-gold-600 text-white font-sans text-xs font-medium shadow-sm transition-transform active:scale-95"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-midnight-950 font-sans text-xs font-semibold shadow-gold transition-transform active:scale-95"
         >
-          <Navigation className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">Directions</span>
+          <Navigation className="w-3.5 h-3.5 text-midnight-950" />
+          <span className="hidden sm:inline">Map</span>
         </a>
 
         {/* Native Mobile Share Button */}
@@ -99,9 +99,9 @@ export const FloatingActions: React.FC = () => {
           onClick={handleNativeShare}
           id="native-share-btn"
           aria-label="Share invitation"
-          className="p-1.5 rounded-full bg-white/80 hover:bg-white text-[#2A2521] border border-gold-200 transition-transform active:scale-95"
+          className="p-1.5 rounded-full bg-midnight-800 hover:bg-midnight-700 text-gold-300 border border-gold-400/40 transition-transform active:scale-95"
         >
-          <Share2 className="w-4 h-4 text-gold-600" />
+          <Share2 className="w-4 h-4 text-gold-400" />
         </button>
       </div>
     </div>
